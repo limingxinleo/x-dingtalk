@@ -1,6 +1,6 @@
 <?php
 // +----------------------------------------------------------------------
-// | Client.php [ WE CAN DO IT JUST THINK IT ]
+// | RobotException.php [ WE CAN DO IT JUST THINK IT ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2017 limingxinleo All rights reserved.
 // +----------------------------------------------------------------------
@@ -8,16 +8,9 @@
 // +----------------------------------------------------------------------
 namespace App\DingTalk\Robot;
 
-class Client
+use Xin\DingTalk\Exceptions\DingTalkException;
+
+class RobotException extends DingTalkException
 {
-    protected static $_instances = [];
 
-    private function __construct()
-    {
-    }
-
-    public static function getInstance($config)
-    {
-
-    }
 }

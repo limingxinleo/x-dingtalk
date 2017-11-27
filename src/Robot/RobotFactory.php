@@ -1,20 +1,22 @@
 <?php
 // +----------------------------------------------------------------------
-// | BaseTest.php [ WE CAN DO IT JUST THINK IT ]
+// | Client.php [ WE CAN DO IT JUST THINK IT ]
 // +----------------------------------------------------------------------
 // | Copyright (c) 2016-2017 limingxinleo All rights reserved.
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Tests\Test;
+namespace App\DingTalk\Robot;
 
-use Tests\Snowflake\Test;
-use Tests\TestCase;
+use Xin\DingTalk\Config;
 
-class BaseTest extends TestCase
+class RobotFactory
 {
-    public function testExample()
+    /** @var RobotClient[] $robots */
+    public $robots;
+
+    public function __construct(Config $config)
     {
-        $this->assertTrue(true);
+
     }
 }

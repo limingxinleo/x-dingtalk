@@ -9,11 +9,40 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase as UnitTestCase;
+use Xin\DingTalk\Application;
 
 class TestCase extends UnitTestCase
 {
+    public $ding;
+
+    public $config;
+
     public function setUp()
     {
+        $url = file_get_contents('url');
 
+        $this->config = [
+            // HTTP 请求的超时时间（秒）
+            'timeout' => 5.0,
+            // 机器人模块
+            'robot' => [
+                'default' => [
+                    // 默认群发配置网关
+                    'gateways' => [
+                        'test', 'test2',
+                    ],
+                ],
+                'gateways' => [
+                    'test' => [
+                        'url' => $url,
+                    ],
+                    'test2' => [
+                        'url' => $url,
+                    ],
+                ],
+            ],
+        ];
+
+        $this->ding = new Application($this->config);
     }
 }

@@ -13,9 +13,7 @@ use Pimple\Container;
 /**
  * Class Application
  * @package limx\Github
- * @property Config      $config
- * @property User        $user
- * @property Tieba\Tieba $tieba
+ * @property Config $config
  */
 class Application extends Container
 {
@@ -25,8 +23,7 @@ class Application extends Container
      * @var array
      */
     protected $providers = [
-        ServiceProviders\UserServiceProvider::class,
-        ServiceProviders\TiebaServiceProvider::class,
+        ServiceProviders\RobotServiceProvider::class,
     ];
 
     /**
@@ -45,7 +42,6 @@ class Application extends Container
         $this->registerProviders();
 
     }
-
 
     /**
      * Magic get access.
