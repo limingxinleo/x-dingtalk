@@ -27,12 +27,6 @@ class TestCase extends UnitTestCase
             'timeout' => 5.0,
             // 机器人模块
             'robot' => [
-                'default' => [
-                    // 默认群发配置网关
-                    'gateways' => [
-                        'test', 'test2',
-                    ],
-                ],
                 'gateways' => [
                     'test' => [
                         'url' => $url,

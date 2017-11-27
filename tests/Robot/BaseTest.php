@@ -45,9 +45,19 @@ class BaseTest extends TestCase
             ],
         ];
 
-        /** @var Response[] $res */
-        $res = $this->ding->robot->send($data, 'test');
-        dd(strval($res[0]->getBody()));
+        $key = 'test';
+        /** @var \Psr\Http\Message\ResponseInterface[] $res */
+        $res = $this->ding->robot->send($data, [$key]);
+        foreach ($res as $item) {
+            $result = $item->getBody()->getContents();
+            $this->assertEquals(
+                [
+                    'errcode' => 0,
+                    'errmsg' => 'ok'
+                ],
+                json_decode($result, true)
+            );
+        }
     }
 
 

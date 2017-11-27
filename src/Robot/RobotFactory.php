@@ -9,12 +9,12 @@
 namespace Xin\DingTalk\Robot;
 
 use Xin\DingTalk\Config;
+use Xin\DingTalk\Exceptions\DingTalkException;
 
-class RobotFactory
+class RobotFactory implements \ArrayAccess
 {
     /** @var RobotClient[] $gateways */
     public $gateways;
-
 
     public function __construct(Config $config)
     {
@@ -25,22 +25,38 @@ class RobotFactory
 
     public function __call($name, $arguments)
     {
-        $data = array_shift($arguments);
+        $gws = array_pop($arguments);
 
         $result = [];
 
-        if (empty($arguments)) {
-            foreach ($this->gateways as $gateway) {
-                $result[] = $gateway->$name($data);
-            }
-        } else {
-            foreach ($arguments as $key) {
-                if (isset($this->gateways[$key])) {
-                    $result[] = $this->gateways[$key]->$name($data);
-                }
+        foreach ($gws as $key) {
+            if (isset($this->gateways[$key])) {
+                $result[$key] = $this->gateways[$key]->$name(...$arguments);
             }
         }
 
         return $result;
     }
+
+    public function offsetExists($offset)
+    {
+        return isset($this->gateways[$offset]);
+    }
+
+    public function offsetGet($offset)
+    {
+        return $this->gateways[$offset];
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        throw new DingTalkException('非法操作');
+    }
+
+    public function offsetUnset($offset)
+    {
+        unset($this->gateways[$offset]);
+    }
+
+
 }

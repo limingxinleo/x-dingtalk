@@ -24,6 +24,7 @@ class RobotClient
      * @desc   发送钉钉消息
      * @author limx
      * @param array $data
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function send($data = [])
     {
@@ -32,5 +33,11 @@ class RobotClient
             'json' => $data,
         ]);
     }
+
+    public function sendText()
+    {
+
+    }
+
 
 }
