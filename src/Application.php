@@ -8,12 +8,14 @@
 // +----------------------------------------------------------------------
 namespace Xin\DingTalk;
 
+use GuzzleHttp\Client;
 use Pimple\Container;
 
 /**
  * Class Application
  * @package limx\Github
  * @property Config $config
+ * @property Client $httpClient
  */
 class Application extends Container
 {
@@ -24,6 +26,7 @@ class Application extends Container
      */
     protected $providers = [
         ServiceProviders\RobotServiceProvider::class,
+        ServiceProviders\HttpClientServiceProvider::class,
     ];
 
     /**
