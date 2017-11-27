@@ -13,6 +13,7 @@ use Xin\DingTalk\Application;
 
 class TestCase extends UnitTestCase
 {
+    /** @var Application */
     public $ding;
 
     public $config;

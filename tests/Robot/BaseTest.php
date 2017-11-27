@@ -19,8 +19,12 @@ class BaseTest extends TestCase
         $this->assertEquals($config->toArray(), $this->ding->config->toArray());
     }
 
-    public function testSendText()
+    public function testHttpClient()
     {
-
+        $client = $this->ding->httpClient;
+        $response = $client->post('https://demo.phalcon.lmx0536.cn/test/api/api');
+        $result = $response->getBody()->getContents();
+        $result = json_decode($result, JSON_UNESCAPED_UNICODE);
+        $this->assertEquals(1, $result['status']);
     }
 }

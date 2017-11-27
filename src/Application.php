@@ -13,7 +13,7 @@ use Pimple\Container;
 
 /**
  * Class Application
- * @package limx\Github
+ * @package Xin\DingTalk
  * @property Config $config
  * @property Client $httpClient
  */
