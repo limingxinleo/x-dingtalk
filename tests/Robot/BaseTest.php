@@ -8,11 +8,19 @@
 // +----------------------------------------------------------------------
 namespace Tests\Test;
 
+use GuzzleHttp\Psr7\Response;
 use limx\Support\Collection;
 use Tests\TestCase;
+use Xin\DingTalk\Application;
 
 class BaseTest extends TestCase
 {
+
+    public function testInstance()
+    {
+        $this->assertEquals($this->ding, Application::getInstance());
+    }
+
     public function testConfig()
     {
         $config = new Collection($this->config);
@@ -27,4 +35,20 @@ class BaseTest extends TestCase
         $result = json_decode($result, JSON_UNESCAPED_UNICODE);
         $this->assertEquals(1, $result['status']);
     }
+
+    public function testSend()
+    {
+        $data = [
+            'msgtype' => 'text',
+            'text' => [
+                "content" => "我就是我, 是不一样的烟火"
+            ],
+        ];
+
+        /** @var Response[] $res */
+        $res = $this->ding->robot->send($data, 'test');
+        dd(strval($res[0]->getBody()));
+    }
+
+
 }

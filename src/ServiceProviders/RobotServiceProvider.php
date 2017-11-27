@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 namespace Xin\DingTalk\ServiceProviders;
 
-use App\DingTalk\Robot\RobotFactory;
+use Xin\DingTalk\Robot\RobotFactory;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 

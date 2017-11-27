@@ -6,9 +6,31 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace App\DingTalk\Robot;
+namespace Xin\DingTalk\Robot;
+
+
+use Xin\DingTalk\Application;
 
 class RobotClient
 {
-    public $robots;
+    public $url;
+
+    public function __construct(array $config)
+    {
+        $this->url = $config['url'];
+    }
+
+    /**
+     * @desc   发送钉钉消息
+     * @author limx
+     * @param array $data
+     */
+    public function send($data = [])
+    {
+        $app = Application::getInstance();
+        return $app->httpClient->post($this->url, [
+            'json' => $data,
+        ]);
+    }
+
 }

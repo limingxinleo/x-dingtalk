@@ -10,6 +10,12 @@ namespace Xin\DingTalk;
 
 use limx\Support\Collection;
 
+/**
+ * Class Config
+ * @package Xin\DingTalk
+ * @property float $timeout
+ * @property array $robot
+ */
 class Config extends Collection
 {
 
