@@ -34,9 +34,24 @@ class RobotClient
         ]);
     }
 
-    public function sendText()
+    /**
+     * @desc   发送Text类型数据
+     * @author limx
+     * @param string $content
+     * @param array  $at
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function sendText(string $content, array $at = [])
     {
+        $data = [
+            'msgtype' => 'text',
+            'text' => [
+                'content' => $content,
+            ],
+            'at' => $at,
+        ];
 
+        return $this->send($data);
     }
 
 

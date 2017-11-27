@@ -30,6 +30,7 @@ class RobotFactory implements \ArrayAccess
         $result = [];
 
         foreach ($gws as $key) {
+
             if (isset($this->gateways[$key])) {
                 $result[$key] = $this->gateways[$key]->$name(...$arguments);
             }

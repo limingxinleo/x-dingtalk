@@ -41,13 +41,30 @@ class BaseTest extends TestCase
         $data = [
             'msgtype' => 'text',
             'text' => [
-                "content" => "我就是我, 是不一样的烟火"
+                "content" => "测试send方法"
             ],
         ];
 
         $key = 'test';
         /** @var \Psr\Http\Message\ResponseInterface[] $res */
         $res = $this->ding->robot->send($data, [$key]);
+        foreach ($res as $item) {
+            $result = $item->getBody()->getContents();
+            $this->assertEquals(
+                [
+                    'errcode' => 0,
+                    'errmsg' => 'ok'
+                ],
+                json_decode($result, true)
+            );
+        }
+    }
+
+    public function testSendText()
+    {
+        /** @var \Psr\Http\Message\ResponseInterface[] $res */
+        $res = $this->ding->robot->sendText('测试sendText方法', [], ['test']);
+
         foreach ($res as $item) {
             $result = $item->getBody()->getContents();
             $this->assertEquals(
