@@ -54,5 +54,48 @@ class RobotClient
         return $this->send($data);
     }
 
+    /**
+     * @desc   发送link类型数据
+     * @author limx
+     * @param array $link
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function sendLink(array $link = [])
+    {
+        $data = [
+            'msgtype' => 'link',
+            'link' => [
+                'text' => $link['text'],
+                'title' => $link['title'],
+                'picUrl' => $link['picUrl'],
+                'messageUrl' => $link['messageUrl'],
+            ],
+        ];
+
+        return $this->send($data);
+    }
+
+    /**
+     * @desc   发送Markdown消息
+     * @author limx
+     * @param string $title
+     * @param string $text
+     * @param array  $at
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function sendMarkdown(string $title, string $text, array $at = [])
+    {
+        $data = [
+            'msgtype' => 'markdown',
+            'markdown' => [
+                'text' => $text,
+                'title' => $title,
+            ],
+            'at' => $at
+        ];
+
+        return $this->send($data);
+    }
+
 
 }
