@@ -51,7 +51,11 @@ class RobotFactory implements \ArrayAccess
 
     public function offsetSet($offset, $value)
     {
-        throw new DingTalkException('非法操作');
+        if ($value instanceof RobotClient) {
+            $this->gateways[$offset] = $value;
+        } else {
+            throw new DingTalkException('The value must instanceof \Xin\DingTalk\Robot\RobotClient');
+        }
     }
 
     public function offsetUnset($offset)
