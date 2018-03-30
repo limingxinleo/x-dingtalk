@@ -41,7 +41,7 @@ class RobotClient
      * @param array  $at
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function sendText(string $content, array $at = [])
+    public function sendText($content, array $at = [])
     {
         $data = [
             'msgtype' => 'text',
@@ -83,7 +83,7 @@ class RobotClient
      * @param array  $at
      * @return \Psr\Http\Message\ResponseInterface
      */
-    public function sendMarkdown(string $title, string $text, array $at = [])
+    public function sendMarkdown($title, $text, array $at = [])
     {
         $data = [
             'msgtype' => 'markdown',
