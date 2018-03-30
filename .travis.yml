@@ -1,0 +1,39 @@
+language: php
+
+dist: trusty
+sudo: false
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+  - nightly
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+git:
+  depth: 1
+
+before_install:
+  - export PHP_MAJOR="$(`phpenv which php` -r 'echo phpversion();' | cut -d '.' -f 1)"
+  - export PHP_MINOR="$(`phpenv which php` -r 'echo phpversion();' | cut -d '.' -f 2)"
+  - echo $PHP_MAJOR
+  - echo $PHP_MINOR
+
+install:
+  - cd $TRAVIS_BUILD_DIR
+  # 安装项目
+  - composer self-update
+  - composer install --prefer-dist --optimize-autoloader
+
+before_script:
+  # 启动PHP
+  - cd $TRAVIS_BUILD_DIR
+
+script:
+  - cd $TRAVIS_BUILD_DIR
+  - ./vendor/bin/phpunit
