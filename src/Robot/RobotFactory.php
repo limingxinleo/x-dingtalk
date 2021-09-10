@@ -1,5 +1,14 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 namespace Fan\DingTalk\Robot;
 
 use Fan\DingTalk\Config;
@@ -7,7 +16,7 @@ use Fan\DingTalk\Exceptions\DingTalkException;
 
 class RobotFactory implements \ArrayAccess
 {
-    /** @var RobotClient[] $gateways */
+    /** @var RobotClient[] */
     public $gateways;
 
     public function __construct(Config $config)
@@ -24,9 +33,8 @@ class RobotFactory implements \ArrayAccess
         $result = [];
 
         foreach ($gws as $key) {
-
             if (isset($this->gateways[$key])) {
-                $result[$key] = $this->gateways[$key]->$name(...$arguments);
+                $result[$key] = $this->gateways[$key]->{$name}(...$arguments);
             }
         }
 
@@ -56,6 +64,4 @@ class RobotFactory implements \ArrayAccess
     {
         unset($this->gateways[$offset]);
     }
-
-
 }

@@ -1,15 +1,27 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 namespace Tests\Test;
 
-use limx\Support\Collection;
-use Tests\TestCase;
 use Fan\DingTalk\Application;
 use Fan\DingTalk\Robot\RobotClient;
+use limx\Support\Collection;
+use Tests\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class BaseTest extends TestCase
 {
-
     public function testInstance()
     {
         $this->assertEquals($this->ding, Application::getInstance());
@@ -26,7 +38,7 @@ class BaseTest extends TestCase
         $url = file_get_contents('url');
 
         $set = new RobotClient([
-            'url' => $url
+            'url' => $url,
         ]);
 
         $this->ding->setTest = $set;
@@ -39,7 +51,7 @@ class BaseTest extends TestCase
         $this->assertEquals(
             [
                 'errcode' => 0,
-                'errmsg' => 'ok'
+                'errmsg' => 'ok',
             ],
             json_decode($result, true)
         );

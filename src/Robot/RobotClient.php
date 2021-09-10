@@ -1,7 +1,15 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 namespace Fan\DingTalk\Robot;
-
 
 use Fan\DingTalk\Application;
 
@@ -16,7 +24,6 @@ class RobotClient
 
     /**
      * @desc   发送钉钉消息
-     * @author limx
      * @param array $data
      * @return \Psr\Http\Message\ResponseInterface
      */
@@ -30,9 +37,7 @@ class RobotClient
 
     /**
      * @desc   发送Text类型数据
-     * @author limx
      * @param string $content
-     * @param array  $at
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function sendText($content, array $at = [])
@@ -50,8 +55,6 @@ class RobotClient
 
     /**
      * @desc   发送link类型数据
-     * @author limx
-     * @param array $link
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function sendLink(array $link = [])
@@ -71,10 +74,8 @@ class RobotClient
 
     /**
      * @desc   发送Markdown消息
-     * @author limx
      * @param string $title
      * @param string $text
-     * @param array  $at
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function sendMarkdown($title, $text, array $at = [])
@@ -85,11 +86,9 @@ class RobotClient
                 'text' => $text,
                 'title' => $title,
             ],
-            'at' => $at
+            'at' => $at,
         ];
 
         return $this->send($data);
     }
-
-
 }

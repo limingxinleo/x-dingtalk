@@ -1,9 +1,22 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 namespace Tests\Test;
 
 use Tests\TestCase;
 
+/**
+ * @internal
+ * @coversNothing
+ */
 class SendTest extends TestCase
 {
     public function testSend()
@@ -11,7 +24,7 @@ class SendTest extends TestCase
         $data = [
             'msgtype' => 'text',
             'text' => [
-                "content" => "测试send方法"
+                'content' => '测试send方法',
             ],
         ];
 
@@ -23,7 +36,7 @@ class SendTest extends TestCase
             $this->assertEquals(
                 [
                     'errcode' => 0,
-                    'errmsg' => 'ok'
+                    'errmsg' => 'ok',
                 ],
                 json_decode($result, true)
             );
@@ -40,7 +53,7 @@ class SendTest extends TestCase
             $this->assertEquals(
                 [
                     'errcode' => 0,
-                    'errmsg' => 'ok'
+                    'errmsg' => 'ok',
                 ],
                 json_decode($result, true)
             );
@@ -55,9 +68,9 @@ class SendTest extends TestCase
 而在此之前，每当面临重大升级，产品经理们都会取一个应景的代号，这一次，为什么是“红树林”？',
             'title' => '时代的火车向前开',
             'picUrl' => '',
-            'messageUrl' => 'https://mp.weixin.qq.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI'
+            'messageUrl' => 'https://mp.weixin.qq.com/s?__biz=MzA4NjMwMTA2Ng==&mid=2650316842&idx=1&sn=60da3ea2b29f1dcc43a7c8e4a7c97a16&scene=2&srcid=09189AnRJEdIiWVaKltFzNTw&from=timeline&isappinstalled=0&key=&ascene=2&uin=&devicetype=android-23&version=26031933&nettype=WIFI',
         ], [
-            'test'
+            'test',
         ]);
 
         foreach ($res as $item) {
@@ -65,7 +78,7 @@ class SendTest extends TestCase
             $this->assertEquals(
                 [
                     'errcode' => 0,
-                    'errmsg' => 'ok'
+                    'errmsg' => 'ok',
                 ],
                 json_decode($result, true)
             );
@@ -90,7 +103,7 @@ class SendTest extends TestCase
             $this->assertEquals(
                 [
                     'errcode' => 0,
-                    'errmsg' => 'ok'
+                    'errmsg' => 'ok',
                 ],
                 json_decode($result, true)
             );

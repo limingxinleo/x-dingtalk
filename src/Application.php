@@ -1,17 +1,25 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of Hyperf.
+ *
+ * @link     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 namespace Fan\DingTalk;
 
+use Fan\DingTalk\Exceptions\DingTalkException;
 use Fan\DingTalk\Robot\RobotFactory;
 use GuzzleHttp\Client;
 use Pimple\Container;
-use Fan\DingTalk\Exceptions\DingTalkException;
 
 /**
- * Class Application
- * @package Fan\DingTalk
- * @property Config       $config
- * @property Client       $httpClient
+ * Class Application.
+ * @property Config $config
+ * @property Client $httpClient
  * @property RobotFactory $robot
  */
 class Application extends Container
@@ -50,23 +58,6 @@ class Application extends Container
     }
 
     /**
-     * @desc   获取当前实例
-     * @author limx
-     * @param $config
-     * @return 当前实例|static
-     */
-    public static function getInstance($config = null)
-    {
-        if (isset(static::$_instance) && static::$_instance instanceof Application) {
-            return static::$_instance;
-        }
-        if (empty($config)) {
-            throw new DingTalkException('配置文件不能为空');
-        }
-        return static::$_instance = new static($config);
-    }
-
-    /**
      * Magic get access.
      *
      * @param string $id
@@ -82,11 +73,22 @@ class Application extends Container
      * Magic set access.
      *
      * @param string $id
-     * @param mixed  $value
+     * @param mixed $value
      */
     public function __set($id, $value)
     {
         $this->offsetSet($id, $value);
+    }
+
+    public static function getInstance($config = null)
+    {
+        if (isset(static::$_instance) && static::$_instance instanceof Application) {
+            return static::$_instance;
+        }
+        if (empty($config)) {
+            throw new DingTalkException('配置文件不能为空');
+        }
+        return static::$_instance = new static($config);
     }
 
     /**
