@@ -21,7 +21,7 @@ class RobotFactory implements \ArrayAccess
 
     public function __construct(Config $config)
     {
-        foreach ($config->robot['gateways'] as $key => $gateway) {
+        foreach ($config->get('robot.gateways', []) as $key => $gateway) {
             $this->gateways[$key] = new RobotClient($gateway);
         }
     }

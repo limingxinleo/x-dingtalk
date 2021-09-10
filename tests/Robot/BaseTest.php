@@ -13,7 +13,7 @@ namespace Tests\Test;
 
 use Fan\DingTalk\Application;
 use Fan\DingTalk\Robot\RobotClient;
-use limx\Support\Collection;
+use Hyperf\Utils\Collection;
 use Tests\TestCase;
 
 /**

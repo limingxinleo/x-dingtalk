@@ -25,7 +25,7 @@ use Pimple\Container;
 class Application extends Container
 {
     /**
-     * @var 当前实例
+     * @var Application
      */
     public static $_instance;
 
