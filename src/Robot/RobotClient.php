@@ -11,15 +11,19 @@ declare(strict_types=1);
  */
 namespace Fan\DingTalk\Robot;
 
-use Fan\DingTalk\Application;
+use Fan\DingTalk\Config;
+use GuzzleHttp\Client;
 
 class RobotClient
 {
     public $url;
 
-    public function __construct(array $config)
+    protected $timeout;
+
+    public function __construct(array $gateway, Config $config)
     {
-        $this->url = $config['url'];
+        $this->url = $gateway['url'];
+        $this->timeout = $config->get('timeout', 5.0);
     }
 
     /**
@@ -29,8 +33,11 @@ class RobotClient
      */
     public function send($data = [])
     {
-        $app = Application::getInstance();
-        return $app->httpClient->post($this->url, [
+        $client = new Client([
+            'timeout' => $this->timeout,
+        ]);
+
+        return $client->post($this->url, [
             'json' => $data,
         ]);
     }

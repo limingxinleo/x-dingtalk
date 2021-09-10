@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Tests\Test;
 
 use Fan\DingTalk\Application;
+use Fan\DingTalk\Config;
 use Fan\DingTalk\Robot\RobotClient;
 use Hyperf\Utils\Collection;
 use Tests\TestCase;
@@ -39,7 +40,7 @@ class BaseTest extends TestCase
 
         $set = new RobotClient([
             'url' => $url,
-        ]);
+        ], new Config($this->config));
 
         $this->ding->setTest = $set;
 
