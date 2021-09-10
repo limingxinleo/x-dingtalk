@@ -18,7 +18,7 @@ class TestCase extends UnitTestCase
 
     public $config;
 
-    public function setUp()
+    public function setUp(): void
     {
         $url = file_get_contents('url');
 
