@@ -9,7 +9,7 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase as UnitTestCase;
-use Xin\DingTalk\Application;
+use Fan\DingTalk\Application;
 
 class TestCase extends UnitTestCase
 {

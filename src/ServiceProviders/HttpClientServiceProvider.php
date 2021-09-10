@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Xin\DingTalk\ServiceProviders;
+namespace Fan\DingTalk\ServiceProviders;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;

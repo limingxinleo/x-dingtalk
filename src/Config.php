@@ -6,13 +6,13 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Xin\DingTalk;
+namespace Fan\DingTalk;
 
 use limx\Support\Collection;
 
 /**
  * Class Config
- * @package Xin\DingTalk
+ * @package Fan\DingTalk
  * @property float $timeout
  * @property array $robot
  */

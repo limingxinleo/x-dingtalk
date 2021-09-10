@@ -4,7 +4,7 @@
 1. 初始化
 ~~~php
 <?php 
-use Xin\DingTalk\Application;
+use Fan\DingTalk\Application;
 
 $config = [
     // HTTP 请求的超时时间（秒）

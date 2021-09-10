@@ -6,16 +6,16 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Xin\DingTalk;
+namespace Fan\DingTalk;
 
-use Xin\DingTalk\Robot\RobotFactory;
+use Fan\DingTalk\Robot\RobotFactory;
 use GuzzleHttp\Client;
 use Pimple\Container;
-use Xin\DingTalk\Exceptions\DingTalkException;
+use Fan\DingTalk\Exceptions\DingTalkException;
 
 /**
  * Class Application
- * @package Xin\DingTalk
+ * @package Fan\DingTalk
  * @property Config       $config
  * @property Client       $httpClient
  * @property RobotFactory $robot

@@ -6,10 +6,10 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Xin\DingTalk\Robot;
+namespace Fan\DingTalk\Robot;
 
 
-use Xin\DingTalk\Application;
+use Fan\DingTalk\Application;
 
 class RobotClient
 {

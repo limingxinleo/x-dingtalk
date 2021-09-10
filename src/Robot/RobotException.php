@@ -8,7 +8,7 @@
 // +----------------------------------------------------------------------
 namespace App\DingTalk\Robot;
 
-use Xin\DingTalk\Exceptions\DingTalkException;
+use Fan\DingTalk\Exceptions\DingTalkException;
 
 class RobotException extends DingTalkException
 {

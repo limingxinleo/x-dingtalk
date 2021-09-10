@@ -6,7 +6,7 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Xin\DingTalk\Exceptions;
+namespace Fan\DingTalk\Exceptions;
 
 use Exception;
 

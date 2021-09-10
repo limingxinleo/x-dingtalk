@@ -10,8 +10,8 @@ namespace Tests\Test;
 
 use limx\Support\Collection;
 use Tests\TestCase;
-use Xin\DingTalk\Application;
-use Xin\DingTalk\Robot\RobotClient;
+use Fan\DingTalk\Application;
+use Fan\DingTalk\Robot\RobotClient;
 
 class BaseTest extends TestCase
 {

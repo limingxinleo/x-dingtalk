@@ -6,10 +6,10 @@
 // +----------------------------------------------------------------------
 // | Author: limx <715557344@qq.com> <https://github.com/limingxinleo>
 // +----------------------------------------------------------------------
-namespace Xin\DingTalk\Robot;
+namespace Fan\DingTalk\Robot;
 
-use Xin\DingTalk\Config;
-use Xin\DingTalk\Exceptions\DingTalkException;
+use Fan\DingTalk\Config;
+use Fan\DingTalk\Exceptions\DingTalkException;
 
 class RobotFactory implements \ArrayAccess
 {
@@ -54,7 +54,7 @@ class RobotFactory implements \ArrayAccess
         if ($value instanceof RobotClient) {
             $this->gateways[$offset] = $value;
         } else {
-            throw new DingTalkException('The value must instanceof \Xin\DingTalk\Robot\RobotClient');
+            throw new DingTalkException('The value must instanceof \Fan\DingTalk\Robot\RobotClient');
         }
     }
 
